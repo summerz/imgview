@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace-manifest.json",
+  "name": "imgview",
+  "owner": { "name": "summerz", "url": "https://github.com/summerz" },
+  "description": "Install imgview, thumbnails for every image a tool returns, with click-to-enlarge and view.",
+  "plugins": [
+    { "name": "imgview", "source": "./", "description": "thumbnails for every image a tool returns, with click-to-enlarge and view.", "license": "MIT", "keywords": ["image","thumbnail","screenshot","viewer","transcript"] }
+  ]
+}

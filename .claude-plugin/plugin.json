@@ -1,0 +1,17 @@
+{
+  "name": "imgview",
+  "version": "0.1.0",
+  "description": "Thumbnails for every image a tool returns, with click-to-enlarge and [view] in the browser.",
+  "author": {
+    "name": "summerz",
+    "url": "https://github.com/summerz"
+  },
+  "userConfig": {
+    "viewer": {
+      "type": "string",
+      "title": "[view] opens with",
+      "description": "\"browser\" opens the image in the default browser; any other value is an app name passed to open -a, e.g. \"Preview\" or \"Safari\".",
+      "default": "browser"
+    }
+  }
+}
