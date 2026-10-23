@@ -45,6 +45,7 @@ const readBase64 = async ($: EngineInterface, path: string): Promise<string | un
 
 // Builds an entry from an image found in a result; `file` is the real path when the tool read one.
 const build = async ($: EngineInterface, id: string, found: Found, file?: string): Promise<Entry | undefined> => {
+  if (!DIR) return undefined
   const ext = extFor(found.mime)
   const key = safe(id || String(Date.now()))
   let path = file
@@ -138,7 +139,8 @@ export const register: Register = (on, options) => {
   })
 
   on('session.start', async ($, e, next) => {
-    DIR = `${(await $.env.get('HOME')) ?? '/tmp'}/.cache/claude-imgview`
+    const home = await $.env.get('HOME')
+    if (home) DIR = `${home}/.cache/claude-imgview` // no HOME: no cache, images are skipped rather than written to a shared dir
     await $.command.register({ name: 'imgview', description: 'Enlarge the most recent tool image' })
     return next(e)
   })
