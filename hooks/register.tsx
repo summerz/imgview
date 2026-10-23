@@ -4,8 +4,7 @@ import type { Found } from './find'
 import { pngSize, thumbRows } from './png'
 
 const PANE = 'imgview'
-const ENV = (typeof process !== 'undefined' ? process.env : {}) as Record<string, string | undefined>
-const DIR = `${ENV.CLAUDE_PLUGIN_ROOT || `${ENV.HOME}/.claude/mods/imgview`}/cache`
+let DIR = '' // ponytail: resolved once at session.start from $HOME; images and thumbnails live under ~/.cache/claude-imgview
 const MAX = 50
 const THUMB_COLS = 24
 const THUMB_ROWS = 6
@@ -139,6 +138,7 @@ export const register: Register = (on, options) => {
   })
 
   on('session.start', async ($, e, next) => {
+    DIR = `${(await $.env.get('HOME')) ?? '/tmp'}/.cache/claude-imgview`
     await $.command.register({ name: 'imgview', description: 'Enlarge the most recent tool image' })
     return next(e)
   })

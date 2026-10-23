@@ -35,7 +35,7 @@ Answer `y` to add the marketplace, then pick a scope.
 - `[enlarge]` opens the image in a pane.
 - `[view]` opens the file in the default browser, or in the app set by `viewer`.
 - `/imgview` re-opens the latest image.
-- Thumbnails are cached under the plugin's `cache/` folder.
+- Images and thumbnails are cached under `~/.cache/claude-imgview`.
 
 ## Settings
 
