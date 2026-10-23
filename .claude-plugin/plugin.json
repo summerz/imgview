@@ -1,6 +1,6 @@
 {
   "name": "imgview",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Thumbnails for every image a tool returns, with click-to-enlarge and [view] in the browser.",
   "author": {
     "name": "summerz",
